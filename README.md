@@ -10,6 +10,7 @@ This project aims to produce a prototype for an assisted writing application bas
 **frontend/src/App.Svelte:** Frontend specifications. Binding of user input for preference to backend code. Displays output of Vale CLI in the application after clicking button.
 
 **.vale.ini**, **styles/singular/singular.yml:** Configuration for singular noun preference and tokens specified
+
 **_vale.ini**, **styles/plural/plural.yml:** Configuration for plural noun preference and tokens specified
 
 **test.txt:** Test file including both 'Data are here' and 'Data is here' with an error produced depending on user preference.
@@ -25,7 +26,7 @@ vale test.txt --config=.vale.ini
 vale test.txt --config=_vale.ini
 ```
 
-Install Wails. Input Type 1 or 2 to indicate singular or plural respectively. If correctly input, clicking the 'Lint it' button will prompt a file dialog to open. Select the appropriate text file (test.txt).
+Install Wails. Input 1 or 2 to indicate singular or plural respectively. If correctly input, clicking the 'Lint it' button will prompt a file dialog to open. Select the appropriate text file (test.txt).
 ```
 xcode-select --install
 go install github.com/wailsapp/wails/v2/cmd/wails@latest
