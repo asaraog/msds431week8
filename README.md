@@ -7,7 +7,7 @@ The application prototype is succesful during development (wails dev) in linking
 
 ## Important files
 
-**app.go:** Backend 'brain' of application. Lint function takes in user preference and a user-specified text file to output a processed string of the Vale CLI output.
+**app.go:** Backend 'brain' of application. Lint function takes in user preference and a user-specified text file to output a processed string of the Vale CLI output. ProcessRaw takes the Vale CLI output and processes it for the application frontend. A test unit function is written in app_test.go.
 
 **frontend/src/App.Svelte:** Frontend specifications. Binding of user input for preference to backend code. Displays output of Vale CLI in the application after clicking button.
 
@@ -15,7 +15,7 @@ The application prototype is succesful during development (wails dev) in linking
 
 **_vale.ini**, **styles/plural/plural.yml:** Configuration for plural noun preference and tokens specified
 
-**test.txt:** Test file including both 'Data are here' and 'Data is here' with an error produced depending on user preference.
+**test.txt:** Test file including both 'Data are here' and 'Data is here' with an error produced depending on user preference. There is some prose generated using ChatGPT with the prompt 'cats 200 words'.
 
 ## Installation and Running
 
@@ -37,7 +37,7 @@ vale test.txt --config=_vale.ini
 
 wails dev
 ```
-Input 1 or 2 to indicate singular or plural respectively. If correctly input, clicking the 'Lint it' button will prompt a file dialog to open. Select the appropriate text file (test.txt). Output should be identical to using the CLI. Check with build version by running the application directly:
+Input 1 or 2 to indicate singular or plural respectively. Try entering 3 to generate the appropriate error message. If correctly input, clicking the 'Lint it' button will prompt a file dialog to open. Select the appropriate text file (test.txt). Output should be identical to using the CLI. Check with build version by running the application directly:
 ```
 cd ./build/bin/
 open Week8.app

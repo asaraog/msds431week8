@@ -52,15 +52,29 @@ func (a *App) Lint(pref string) []string {
 	case 2:
 		cmdArgs = append(cmdArgs, "--config=_vale.ini") //plural
 	}
-	cmd := exec.Command("vale", cmdArgs...) //runs Vale
-	outvale, err := cmd.CombinedOutput()    //returns output from Vale CLI
-	if err != nil {                         //Error for issues with running Vale
-		return []string{"Something is wrong with your input file. Check that it is a .txt or .md.", "Alternately, Vale could not have loaded correctly"}
+	cmd := exec.Command("vale", cmdArgs...)             //runs Vale
+	outvale, err1 := cmd.CombinedOutput()               //returns output from Vale CLI
+	if err1 != nil && err1.Error() != "exit status 1" { //Error for issues with running Vale
+		return []string{"Something is wrong with your input file. Check that it is a .txt or .md.", "Alternately, Vale could not have loaded correctly", err1.Error()}
 	}
 
 	//Processing Output from Vale to frontend
 	rawout := string(outvale)
-	processedout := strings.Split(rawout, "\n")
-	processedout = processedout[2 : len(processedout)-3] //removes some unnecesary lines but could be improved further
+	processedout, err2 := ProcessRaw(rawout)
+	if err2 != "None" { //Error for processing
+		return []string{err2, "Check that your file has at least 200 words", "Alternately, there nothing to report on your input text."}
+	}
 	return processedout
+}
+
+// Processes VLI output into application
+func ProcessRaw(rawout string) ([]string, string) {
+	err2 := "None"
+	processedout := strings.Split(rawout, "\n")
+	if len(processedout) < 5 {
+		err2 = "Error in Vale CLI output"
+	} else {
+		processedout = processedout[2 : len(processedout)-3] //removes some unnecesary lines but could be improved further
+	}
+	return processedout, err2
 }
