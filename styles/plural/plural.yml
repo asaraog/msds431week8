@@ -1,0 +1,11 @@
+extends: existence
+message: "'%s' is incorrect. Use plural form."
+level: warning
+ignorecase: true
+tokens:
+  - data is
+  - data was
+  - data shows
+  - data suggests
+  - data indicates
+  - datum
