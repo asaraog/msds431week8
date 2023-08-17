@@ -19,19 +19,25 @@ The application prototype is succesful during development (wails dev) in linking
 
 ## Installation and Running
 
-Download or git clone this project onto local machine into folder on local machine. Note to substitute brew with your package installer to get Vale. The test file is used to ensure correct installation of vale.
-```
-git clone https://github.com/asaraog/msds431week7.git
-brew install vale
-vale sync
-vale test.txt --config=.vale.ini
-vale test.txt --config=_vale.ini
-```
-
-Install Wails. Input 1 or 2 to indicate singular or plural respectively. If correctly input, clicking the 'Lint it' button will prompt a file dialog to open. Select the appropriate text file (test.txt). Output should be identical to using the CLI.
+First install Vale and Wails onto your machine. Note to substitute brew with your package installer to get Vale.
 ```
 xcode-select --install
 go install github.com/wailsapp/wails/v2/cmd/wails@latest
+brew install vale
+```
+
+Download or git clone this project onto your local machine. Input 1 or 2 to indicate singular or plural respectively. If correctly input, clicking the 'Lint it' button will prompt a file dialog to open. Select the appropriate text file (test.txt). Output should be identical to using the CLI.
+
+
+After you have Wails and Vale installed:
+```
+git clone https://github.com/asaraog/msds431week8.git
+cd msds431week8
+
+vale sync
+vale test.txt --config=.vale.ini
+vale test.txt --config=_vale.ini
+
 wails dev
 ```
 
