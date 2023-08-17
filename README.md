@@ -26,8 +26,7 @@ go install github.com/wailsapp/wails/v2/cmd/wails@latest
 brew install vale
 ```
 
-Download or git clone this project onto your local machine and test using vale CLI before running the development application
-
+Download or git clone this project onto your local machine and test using vale CLI before running the development application:
 ```
 git clone https://github.com/asaraog/msds431week8.git
 cd msds431week8
@@ -38,9 +37,7 @@ vale test.txt --config=_vale.ini
 
 wails dev
 ```
-Input 1 or 2 to indicate singular or plural respectively. If correctly input, clicking the 'Lint it' button will prompt a file dialog to open. Select the appropriate text file (test.txt). Output should be identical to using the CLI.
-
-Run application directly.
+Input 1 or 2 to indicate singular or plural respectively. If correctly input, clicking the 'Lint it' button will prompt a file dialog to open. Select the appropriate text file (test.txt). Output should be identical to using the CLI. Check with build version by running the application directly:
 ```
 cd ./build/bin/
 open Week8.app
