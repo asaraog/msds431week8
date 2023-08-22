@@ -1,4 +1,4 @@
-module changeme
+module Week8
 
 go 1.18
 
